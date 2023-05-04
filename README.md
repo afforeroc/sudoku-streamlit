@@ -24,7 +24,6 @@ My sudoku maded with Streamlit library
 ## PEP8 and Pylint
 > PowerShell
 * Check code style: `pycodestyle [filename].py`
-* Auto code style: `autopep8 --in-place [filename].py`
 * Static code analyser: `pylint [filename].py` 
 
 ## Deactivate the virtualenv

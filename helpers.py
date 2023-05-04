@@ -5,6 +5,7 @@ Date: 2023-04-28
 """
 
 import random
+import copy
 
 
 def generate_a_empty_sudoku():
@@ -57,30 +58,6 @@ def generate_random_sudoku(sudoku):
     return sudoku, True
 
 
-def create_empty_random_spaces(sudoku, mode="easy"):
-    mode_spaces = {"easy": 81-38, "medium": 81-32, "hard": 81-25, "expert": 81-17}
-    spaces = mode_spaces[mode]
-    positions = set()
-    while True:
-        row = random.randint(0, 8)
-        col = random.randint(0, 8)
-        sudoku[row][col] = '-'
-        positions.add((row, col))
-        if len(positions) == spaces:
-            break
-    return sudoku
-
-
-def create_sudoku_to_solve():
-    """Create a sudoku using the core function generate a random sudoku"""
-    while True:
-        sudoku = generate_a_empty_sudoku()
-        sudoku, status = generate_random_sudoku(sudoku)
-        if status and check_sudoku(sudoku):
-            sudoku = create_empty_random_spaces(sudoku, "expert")
-            return sudoku
-
-
 def check_group_of_numbers(group_of_numbers):
     """It check that a group of numbers don't have repeated values
         and the values are the numbers in range(1, 10)"""
@@ -118,6 +95,36 @@ def check_sudoku(sudoku):
                 return False
     # If all is good!
     return True
+
+
+def create_complete_sudoku():
+    """Create a sudoku using the core function: generate_random_sudoku"""
+    while True:
+        empty_sudoku = generate_a_empty_sudoku()
+        complete_sudoku, status = generate_random_sudoku(empty_sudoku)
+        if status and check_sudoku(complete_sudoku):
+            return complete_sudoku
+
+
+def create_sudoku_to_solve(complete_sudoku, mode="easy"):
+    """It adds spaces to sudoku according to level of difficulty"""
+    mode_spaces = {
+        "easy": 43,     # 43 spaces, 38 numbers
+        "medium": 49,   # 49 spaces, 32 numbers
+        "hard": 56,     # 56 spaces, 25 numbers
+        "extreme": 64   # 64 spaces, 17 numbers
+    }
+    spaces = mode_spaces[mode]
+    sudoku_to_solve = copy.deepcopy(complete_sudoku)
+    positions = set()
+    while True:
+        row = random.randint(0, 8)
+        col = random.randint(0, 8)
+        sudoku_to_solve[row][col] = 0
+        positions.add((row, col))
+        if len(positions) == spaces:
+            break
+    return sudoku_to_solve
 
 
 def print_sudoku(sudoku):
