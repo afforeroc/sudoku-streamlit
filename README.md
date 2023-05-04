@@ -21,6 +21,12 @@ My sudoku maded with Streamlit library
 * Activate virtual env: `.\venv\Scripts\activate`
 * Run the web app: `streamlit run .\sudoku_web_app.py`
 
+## PEP8 and Pylint
+> PowerShell
+* Check code style: `pycodestyle [filename].py`
+* Auto code style: `autopep8 --in-place [filename].py`
+* Static code analyser: `pylint [filename].py` 
+
 ## Deactivate the virtualenv
 > PowerShell
 * Run the visualizator: `deactivate`
