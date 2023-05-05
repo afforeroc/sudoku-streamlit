@@ -91,7 +91,7 @@ def check_sudoku(sudoku):
                 box = box + mini_row
             if not check_group_of_numbers(box):
                 box_num = 3 * big_i + big_j
-                print(f"Error in box {box_num}: {box}")
+                print(f"Error in box {box_num}: {box}", end='')
                 return False
     # If all is good!
     return True
@@ -120,7 +120,7 @@ def create_sudoku_to_solve(complete_sudoku, mode="easy"):
     while True:
         row = random.randint(0, 8)
         col = random.randint(0, 8)
-        sudoku_to_solve[row][col] = 0
+        sudoku_to_solve[row][col] = '-'
         positions.add((row, col))
         if len(positions) == spaces:
             break

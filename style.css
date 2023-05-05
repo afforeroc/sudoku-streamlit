@@ -1,0 +1,21 @@
+/* Box 1 */
+.data.row0.col0,  .data.row0.col1, .data.row0.col2,
+.data.row1.col0,  .data.row1.col1, .data.row1.col2,
+.data.row2.col0,  .data.row2.col1, .data.row2.col2,
+/* Box 3 */
+.data.row0.col6,  .data.row0.col7, .data.row0.col8,
+.data.row1.col6,  .data.row1.col7, .data.row1.col8,
+.data.row2.col6,  .data.row2.col7, .data.row2.col8,
+/* Box 5 */
+.data.row3.col3,  .data.row3.col4, .data.row3.col5,
+.data.row4.col3,  .data.row4.col4, .data.row4.col5,
+.data.row5.col3,  .data.row5.col4, .data.row5.col5,
+/* Box 7 */
+.data.row6.col0,  .data.row6.col1, .data.row6.col2,
+.data.row7.col0,  .data.row7.col1, .data.row7.col2,
+.data.row8.col0,  .data.row8.col1, .data.row8.col2,
+/* Box 9 */
+.data.row6.col6,  .data.row6.col7, .data.row6.col8,
+.data.row7.col6,  .data.row7.col7, .data.row7.col8,
+.data.row8.col6,  .data.row8.col7, .data.row8.col8
+{ background-color: lightgray }

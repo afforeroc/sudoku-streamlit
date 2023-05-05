@@ -11,9 +11,9 @@ from helpers import create_complete_sudoku,\
 
 
 if __name__ == "__main__":
-    # Constants
-    N_ROWS = 3
-    N_COLS = 3
+    # Import styles
+    with open('style.css', encoding="utf-8") as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
     # Create the complete sudoku and the sudoku to solve
     if "complete_sudoku" not in st.session_state:
         st.session_state["complete_sudoku"] = create_complete_sudoku()
@@ -28,28 +28,22 @@ if __name__ == "__main__":
                                       index=rows, columns=cols)
     sudoku_to_solve_df = pd.DataFrame(sudoku_to_solve,
                                       index=rows, columns=cols)
-    # Display the sudoku to solve
-    st.markdown("<h1 style='text-align: center;'>Sudoku to solve</h1>",
-                unsafe_allow_html=True)
-    rows = [st.container() for _ in range(N_ROWS)]
-    cols_per_row = [r.columns(N_COLS) for r in rows]
-    cols = [column for row in cols_per_row for column in row]
-    for big_i in range(3):
-        for big_j in range(3):
-            box_number = 3 * big_i + big_j
-            cols[box_number].dataframe(
-                sudoku_to_solve_df.iloc[3 * big_i:3 * big_i + 3,
-                                        3 * big_j:3 * big_j + 3])
-    # Display the complete sudoku
-    if st.button('Show the solution'):
-        st.markdown("<h1 style='text-align: center;'>Complete sudoku</h1>",
+    # Test table hide index and row
+    col1, col2 = st.columns(2)
+    with col1:
+        # Display the sudoku to solve
+        st.title('Sudoku to solve')
+        st.markdown(
+            sudoku_to_solve_df.style.hide(
+                axis="index").hide(axis="columns").to_html(),
+            unsafe_allow_html=True)
+        # Aditional space
+        st.write("")
+        # Display the complete sudoku
+        if st.button('Show the solution'):
+            with col2:
+                st.title('Sudoku solved')
+                st.markdown(
+                    complete_sudoku_df.style.hide(
+                        axis="index").hide(axis="columns").to_html(),
                     unsafe_allow_html=True)
-        rows_s = [st.container() for _ in range(N_ROWS)]
-        cols_per_row_s = [r.columns(N_COLS) for r in rows_s]
-        cols_s = [column for row in cols_per_row_s for column in row]
-        for big_i in range(3):
-            for big_j in range(3):
-                box_number = 3 * big_i + big_j
-                cols_s[box_number].dataframe(
-                    complete_sudoku_df.iloc[3 * big_i:3 * big_i + 3,
-                                            3 * big_j:3 * big_j + 3])
