@@ -120,7 +120,7 @@ def create_sudoku_to_solve(complete_sudoku, mode="easy"):
     while True:
         row = random.randint(0, 8)
         col = random.randint(0, 8)
-        sudoku_to_solve[row][col] = '-'
+        sudoku_to_solve[row][col] = ' '
         positions.add((row, col))
         if len(positions) == spaces:
             break
