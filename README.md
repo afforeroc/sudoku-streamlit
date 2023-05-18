@@ -2,6 +2,7 @@
 My sudoku maded with Streamlit library
 
 ## Install Python and update pip
+> PowerShell
 * Install [Python](https://www.tutorialsteacher.com/python/install-python#:~:text=You%20can%20install%20Python%20by,to%20start%20the%20installation%20wizard.)
 * Check Python version: `python --version`
 * Install and upgrade pip: `python -m pip install --upgrade pip`
