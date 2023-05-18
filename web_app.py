@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """
 This web app show a sudoku using Streamlit
 Author: Andres Felipe Forero Correa
@@ -6,7 +8,7 @@ Date: 2023-05-03
 
 import streamlit as st
 import pandas as pd
-from helpers import create_complete_sudoku,\
+from functions import create_complete_sudoku,\
     create_sudoku_to_solve
 
 

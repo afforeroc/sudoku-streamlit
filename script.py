@@ -1,10 +1,12 @@
+# -*- coding: utf-8 -*-
+
 """
 This script show sudoku functions in action
 Author: Andres Felipe Forero Correa
 Date: 2023-05-03
 """
 
-from helpers import create_complete_sudoku,\
+from functions import create_complete_sudoku,\
     create_sudoku_to_solve, print_sudoku
 
 

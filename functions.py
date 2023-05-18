@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 """
 This module provides utility functions for working with sudokus
 Author: Andres Felipe Forero Correa
